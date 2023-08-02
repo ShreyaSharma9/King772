@@ -9,19 +9,19 @@ import logo6 from "../assets/logo4.png"
 const Dashboard = () => {
 
   const [players, setPlayers] = useState([]);
-  const [Flag, setFlag] = useState(false);
+ 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch('https://auth-backend-93eo.onrender.com/api/user/players');
-        console.log(response)
+       
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        setFlag(true)
-        console.log(data)
+      
+      
         setPlayers(data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -34,13 +34,7 @@ const Dashboard = () => {
 
   console.log(players)
 
-  useEffect(() => {
-
-    if (!Flag) {
-      // const navigate = useNavigate();
-    }
-
-  }, [])
+ 
 
 
   return (
